@@ -1,0 +1,27 @@
+@import "mixins";
+
+.header {
+  display: grid;
+  grid-template-areas:
+    "h1 nav nav"
+    "h2 nav nav";
+  grid-area: header;
+  grid-column: 1 / -1;
+  align-items: center;
+  background-color: red;
+
+  .h1 {
+    grid-area: h1;
+  }
+
+  .h2 {
+    grid-area: h2;
+  }
+
+  .nav {
+    @include flexin(space-between);
+    grid-area: nav;
+    border: 1px solid;
+    align-self: stretch;
+  }
+}

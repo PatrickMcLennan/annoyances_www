@@ -1,0 +1,13 @@
+- const navItems = [{ href: `/`, title: `Home` }, { href: `/aboutMe`, title: `About the Author` }]
+
+append head
+    link(rel="stylesheet" href="css/header.css" type="text/css")
+
+append header
+    h1.h1 annoyances
+    h2.h2 taking the annoying stuff out of JS
+    nav.nav
+        ul.ul
+            for item in navItems
+                li.li
+                    a(href=item.href)=item.title

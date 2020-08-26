@@ -1,0 +1,30 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a,
+button {
+  text-decoration: none;
+  background-color: none;
+}
+
+ul,
+li {
+  list-style-type: none;
+}
+
+body {
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "main main main"
+    "footer footer footer";
+  grid-template-rows: minmax(100px, 0.2fr) 1fr minmax(100px, 0.2fr);
+}
