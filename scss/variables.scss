@@ -1,5 +1,11 @@
-$font-regular: 20, 24;
+$font-sizes: (
+  "regular": 20,
+  "small": 16,
+  "large": 28,
+);
 
-$font-small: 16, 20;
-
-$font-large: 28, 36;
+$queries: (
+  "desktop": 1200,
+  "tablet": 1024,
+  "mobile": 767,
+);

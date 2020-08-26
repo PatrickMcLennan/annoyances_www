@@ -1,3 +1,6 @@
+@import "variables";
+
+// Layout
 @mixin flexin($jc: center, $ai: center, $fd: row, $fw: nowrap) {
   display: flex;
   justify-content: $jc;
@@ -6,7 +9,55 @@
   flex-wrap: $fw;
 }
 
-@mixin fontLine($fs, $lh) {
-  font-size: #{$fs}px;
-  line-height: #{$lh}px;
+@mixin pagePadding() {
+  padding-left: 5%;
+  padding-right: 5%;
+
+  @include breakpoint(tablet) {
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+  }
+
+  @include breakpoint(mobile) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+// Typography
+@function getFontSize($fs) {
+  $size: map-get($font-sizes, $fs);
+
+  @if ($size) {
+    @return $size / 16;
+  } @else if not ($size) and (type_of($size) == number) {
+    @return $fs / 16;
+  } @else {
+    @error "#{$fs} could not be parsed in the getFontSize function";
+  }
+}
+
+@mixin fontLine($fs) {
+  $size: getFontSize($fs);
+  font-size: #{$size}rem;
+  line-height: #{$size + ($size / 20)}rem;
+}
+
+// Breakpoints
+@function getQuery($query) {
+  $breakpoint: map-get($queries, $query);
+
+  @if ($breakpoint) {
+    @return $breakpoint;
+  } @else if not ($breakpoint) and (type_of($query) == number) {
+    @return $query;
+  } @else {
+    @error "#{$query} could not be parsed in the getQuery function";
+  }
+}
+
+@mixin breakpoint($query) {
+  @media screen and (max-width: #{getQuery($query)}px) {
+    @content;
+  }
 }

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "ts-server": "ts-node server.ts",
+    "ts-dom": "tsc -p tsconfig.dom.json -w",
     "js-server": "ts-node dist/server.js",
     "sass-watch": "node-sass -o 'public/css' -w ./scss",
     "build": "tsc -p ."
@@ -14,6 +15,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^4.17.7",
+    "@types/gsap": "^1.20.2",
     "@types/node": "^14.6.0",
     "express": "^4.17.1",
     "node-sass": "^4.14.1",
@@ -21,5 +23,7 @@
     "ts-node": "^9.0.0",
     "typescript": "^4.0.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "gsap": "^3.5.0"
+  }
 }

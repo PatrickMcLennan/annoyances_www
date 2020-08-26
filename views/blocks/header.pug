@@ -1,13 +1,17 @@
 - const navItems = [{ href: `/`, title: `Home` }, { href: `/aboutMe`, title: `About the Author` }]
-
-append head
-    link(rel="stylesheet" href="css/header.css" type="text/css")
+- const searchAria = `Search for something specific`
+- const hamburgerAria = `Open the Nav Menu`
 
 append header
     h1.h1 annoyances
-    h2.h2 taking the annoying stuff out of JS
+    h2.h2 I did some of the boring stuff for you
+    input.search(aria-label=searchAria autocomplete="off" placeholder="What are you looking for?" title=searchAria type="search" )
     nav.nav
         ul.ul
             for item in navItems
                 li.li
                     a(href=item.href)=item.title
+        button.mobile-hamburger(aria-label=hamburgerAria title=hamburgerAria)
+            span.top
+            span.middle
+            span.bottom

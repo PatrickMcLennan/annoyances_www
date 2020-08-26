@@ -1,8 +1,0 @@
-// @import "variables";
-// @import "mixins";
-
-.footer {
-  display: grid;
-  grid-area: footer;
-  grid-template-columns: repeat(3, 1fr);
-}
