@@ -1,4 +1,4 @@
-@import "variables";
+@import "_variables";
 
 // Layout
 @mixin flexin($jc: center, $ai: center, $fd: row, $fw: nowrap) {
@@ -37,10 +37,23 @@
   }
 }
 
-@mixin fontLine($fs) {
+@function getFontWeight($fw) {
+  $weight: map-get($font-weights, $fw);
+
+  @if ($weight) {
+    @return $weight;
+  } @else {
+    @error "#{$fw} could not be parsed in the getfontWeight function";
+  }
+}
+
+@mixin font($fs, $fw: 0) {
   $size: getFontSize($fs);
+  $weight: if($fw != 0, getFontWeight($fw), 300);
+
   font-size: #{$size}rem;
   line-height: #{$size + ($size / 20)}rem;
+  font-weight: $weight;
 }
 
 // Breakpoints
@@ -60,4 +73,16 @@
   @media screen and (max-width: #{getQuery($query)}px) {
     @content;
   }
+}
+
+// Cards
+@mixin card() {
+  background-color: transparentize($biege, 0.6);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px; /* 5px rounded corners */
+}
+
+// Gsap Animation presets
+@mixin springIn() {
+  transform: scale(0.9);
 }

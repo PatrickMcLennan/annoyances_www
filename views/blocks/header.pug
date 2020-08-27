@@ -12,6 +12,5 @@ append header
                 li.li
                     a(href=item.href)=item.title
         button.mobile-hamburger(aria-label=hamburgerAria title=hamburgerAria)
-            span.top
-            span.middle
-            span.bottom
+            for className in [`top`, `middle`, `bottom`]
+                span(class=className)

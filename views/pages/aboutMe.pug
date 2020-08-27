@@ -1,4 +1,26 @@
 extends ../includes/layout
 
+append head
+    link(rel="stylesheet" href="css/aboutMe.css")
+    script(src="js/aboutMe.js" defer)
+
 append main
-    
+    - const name = "Patrick McLennan"
+    - const usedTech = ['typescript', 'node']
+    section.about-me
+        div.card
+            h3.h3 I'm Pat, and I make cool stuff.
+            span.span These docs were made with: 
+                .scroller
+                    for logo in usedTech
+                        img.logo(alt=logo + "logo" aria-label=logo src="/images/" + logo + "-logo.png" title=logo)
+
+            // TS, express, node, pug, sass. logos
+            span.span but I enjoy and use a wide range of technology.
+            // Rust, Jest, Webpack, etc. logos here
+
+            h4.h4 Let's connect
+            // Github + LinkedIn logos and links
+        
+        a.github(aria-label=name + 's Github' href="https://www.github.com/patrickmclennan" target="_blank" title=name + 's GitHub') GitHub
+        a.linkedIn(aria-label=name + 's LinkedIn' href="https://www.github.com/patrickmclennan" target="_blank" title=name + 's LinkedIn') LinkedIn

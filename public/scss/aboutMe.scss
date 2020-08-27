@@ -1,0 +1,59 @@
+@import "_mixins";
+
+.about-me {
+  @include flexin(center, stretch, column);
+  grid-column: 1 / -1;
+  height: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+
+  .card {
+    @include springIn();
+    grid-area: card;
+    padding: 10px;
+
+    .h3 {
+      @include font("large");
+      margin: 0 auto;
+    }
+
+    .span {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .scroller {
+      @include flexin(space-around);
+    }
+
+    .logo {
+      object-fit: cover;
+    }
+
+    .h4 {
+      text-align: right;
+      margin-top: 20px;
+    }
+  }
+
+  .github,
+  .linkedIn {
+    @include font("regular", "regular");
+    margin-top: 20px;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 4.5px;
+    border: 2px solid blue;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .github {
+    grid-area: github;
+  }
+
+  .linkedIn {
+    grid-area: linkedIn;
+  }
+}

@@ -1,3 +1,11 @@
+- const links = [{ href: `/class/DateInfo`, aria: `See information on the DateInfo Class`, text: `DateInfo` }, { href: `/function/arrays`, aria: `See Array methods`, text: `Array Methods` }, { href: `/class/linkedList`, aria: `See information on the LinkedList Class`, text: `LinkedList` }]
+
 
 append footer
-    p.p hello
+    h6.h6 annoyances
+
+    section.quick-links
+        ul.ul
+            for link in links
+                li.li
+                    a(aria-label=link.aria href=link.href title=link.title)=link.text

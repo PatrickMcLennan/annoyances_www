@@ -4,26 +4,37 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "ts-server": "ts-node server.ts",
-    "ts-dom": "tsc -p tsconfig.dom.json -w",
-    "js-server": "ts-node dist/server.js",
-    "sass-watch": "node-sass -o 'public/css' -w ./scss",
+    "server-dev": "nodemon",
+    "fe-dev": "webpack --config webpack.config.js --mode=development",
+    "fe-prod": "webpack --config webpack.config.js --mode=production",
     "build": "tsc -p ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@swc/cli": "^0.1.26",
+    "@swc/core": "^1.2.21",
     "@types/express": "^4.17.7",
-    "@types/gsap": "^1.20.2",
     "@types/node": "^14.6.0",
+    "autoprefixer": "^9.8.6",
+    "css-loader": "^4.2.2",
     "express": "^4.17.1",
+    "mini-css-extract-plugin": "^0.10.0",
     "node-sass": "^4.14.1",
+    "nodemon": "^2.0.4",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
     "pug": "^3.0.0",
+    "sass-loader": "^10.0.1",
+    "swc-loader": "^0.1.12",
     "ts-node": "^9.0.0",
-    "typescript": "^4.0.2"
+    "typescript": "^4.0.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "gsap": "^3.5.0"
   }
 }
