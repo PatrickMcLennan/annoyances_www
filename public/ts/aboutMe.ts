@@ -6,5 +6,5 @@ const ABOUT_ME: HTMLElement = document.querySelector(`.about-me`);
 if (ABOUT_ME) {
   const card: HTMLDivElement = ABOUT_ME.querySelector(`.card`);
   springIn(card);
-  console.log(`hwllo dsadagaindfdsf`);
+  console.log(`hwllo dadasdsdasdasdsadagaindfdsf`);
 }

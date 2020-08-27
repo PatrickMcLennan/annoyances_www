@@ -2,6 +2,10 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const { NamedChunksPlugin } = require("webpack");
+
+const PROD = process.argv[process.argv.length - 1].split(`--mode=`)[1].trim().toLowerCase() === `production`;
 
 module.exports = {
   entry: {
@@ -44,8 +48,23 @@ module.exports = {
       }),
       new OptimizeCssAssetsPlugin({}),
     ],
+    namedChunks: true,
+    splitChunks: {
+      chunks: `all`,
+      maxInitialRequests: Infinity,
+      minSize: 0,
+      cacheGroups: {
+        gsap: {
+          test: /node_modiles\/gsap\//,
+          name: `gsap`,
+          chunks: `all`,
+        },
+      },
+    },
   },
   plugins: [
+    new CleanWebpackPlugin(),
+    new NamedChunksPlugin(),
     new MiniCssExtractPlugin({
       filename: "../css/[name].css",
     }),
@@ -56,7 +75,8 @@ module.exports = {
       ts: path.resolve(__dirname, `public/ts/`),
     },
   },
-  devtool: `source-map`,
+  devtool: !PROD && `source-map`,
   resolve: { extensions: [`.js`, `.ts`, `.scss`] },
-  watch: true,
+  stats: PROD ? `normal` : `minimal`,
+  watch: !PROD,
 };
