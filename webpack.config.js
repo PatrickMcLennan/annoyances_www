@@ -11,6 +11,7 @@ module.exports = {
   entry: {
     aboutMe: path.resolve(__dirname, `public/ts/aboutMe.ts`),
     global: path.resolve(__dirname, `public/ts/global.ts`),
+    classes: path.resolve(__dirname, `public/ts/classes.ts`),
   },
   output: {
     path: path.resolve(__dirname, `public/js`),

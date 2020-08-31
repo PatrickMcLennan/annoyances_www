@@ -30,10 +30,11 @@
 
   @if ($size) {
     @return $size / 16;
-  } @else if not ($size) and (type_of($size) == number) {
+  } @else if not ($size) and (type_of($fs) == number) {
     @return $fs / 16;
   } @else {
-    @error "#{$fs} could not be parsed in the getFontSize function";
+    @debug $size;
+    @error $fs could not be parsed in the getFontSize function;
   }
 }
 
@@ -43,7 +44,8 @@
   @if ($weight) {
     @return $weight;
   } @else {
-    @error "#{$fw} could not be parsed in the getfontWeight function";
+    @debug $fw;
+    @error $fw could not be parsed in the getfontWeight function;
   }
 }
 

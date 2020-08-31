@@ -1,4 +1,11 @@
 import "../scss/global.scss";
 const hello: string = `hello world!`;
 
-console.log(hello + 2);
+/**
+ * Type-ahead
+ */
+
+// document.querySelector(all);
+
+// Header
+const HEADER: HTMLElement = document.querySelector(`.header`);

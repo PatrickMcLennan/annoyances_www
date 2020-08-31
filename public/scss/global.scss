@@ -10,10 +10,14 @@
 }
 
 a,
+a:active,
+a:visited,
+a:focus,
 button {
   text-decoration: none;
   background-color: none;
   border: none;
+  color: currentColor;
   cursor: pointer;
 }
 
@@ -103,7 +107,6 @@ body {
 }
 
 .main {
-  @include pagePadding();
   grid-column: 1 / -1;
 }
 

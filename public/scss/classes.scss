@@ -1,0 +1,44 @@
+@import "./mixins";
+@import "./variables";
+
+.class {
+  &--hero {
+    @include flexin(flex-end, center, column);
+    padding-top: 150px;
+    position: relative;
+    background-color: $light-gray;
+
+    .name {
+      @include font(50, "bold");
+      color: white;
+    }
+
+    .static-badge {
+      position: absolute;
+      top: 30px;
+      right: 0;
+      background-color: red;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .shadow {
+      @include font("large", "bold");
+      position: absolute;
+    }
+  }
+
+  &--accordions {
+    @include flexin(center, flex-start);
+
+    .accordions {
+      margin: 40px auto;
+    }
+
+    .accordion {
+      &:not(:first-of-type) {
+        margin-top: 30px;
+      }
+    }
+  }
+}

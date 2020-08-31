@@ -1,0 +1,21 @@
+extends ../includes/layout
+
+append head
+    link(rel="stylesheet" href="/css/classes.css" type="text/css")
+    script(src="/js/classes.js" defer)
+
+append main
+    - const { name, isStatic, description, methods } = queriedClass;
+    section.class--hero(role="banner")
+        h3.name= name
+        span.shadow(aria-hidden="true") Class
+        if isStatic 
+            .static-badge Static
+        p.description= description
+
+    section.class--accordions(role="main")
+        ul.accordions
+            for method in methods
+                li.accordion(aria-expanded="false")
+                    button.button= method.name
+                        span.return-type=method.returnType
